@@ -1,0 +1,163 @@
+{
+  "info": {
+    "_postman_id": "8f3b2075-813c-42cb-b1b7-a06bbd9f28df",
+    "name": "Diary App API",
+    "description": "Postman Collection untuk Pengujian REST API Modul Praktikum 9 - Mobile Programming",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02 - Read Semua Diary (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/diaries",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Pencarian Diary (GET with search)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/diaries?search=kampus",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries"],
+          "query": [
+            {
+              "key": "search",
+              "value": "kampus"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04 - Read Satu Diary by ID (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/diaries/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05 - Tambah Diary Baru (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Belajar REST API\",\n  \"diary_date\": \"2026-11-23\",\n  \"body\": \"Hari ini saya belajar menghubungkan Express dan MySQL.\",\n  \"mood\": \"🎯\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/diaries",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06 - Validasi Title Minimal 3 Karakter (POST Error 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Hi\",\n  \"diary_date\": \"2026-11-23\",\n  \"body\": \"Judul hanya 2 karakter.\",\n  \"mood\": \"😊\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/diaries",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07 - Update Diary & Favorite (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Belajar CRUD dan REST API\",\n  \"body\": \"Hari ini saya memahami alur CRUD pada aplikasi mobile.\",\n  \"mood\": \"😊\",\n  \"liked\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/diaries/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08 - Hapus Diary (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/diaries/2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "diaries", "2"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
